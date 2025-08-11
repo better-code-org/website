@@ -1,11 +1,96 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from '../components/Hero.astro';
 ---
 
 <Layout>
-	<Welcome />
+    <Hero heading="Better Code" subheading="Learning to write better code through understanding and practice"/>
+
+    <section class="navigation">
+        <a href="articles/">Articles</a>
+    </section>
+
+    <section class="content">
+        <h2>Introduction</h2>
+        <p>
+            Better Code is an idea that has been ruminating on Pete Shepley's mind for a while. It is an
+            an attempt to understand what it means to write better code. It stems from the continuous improvement
+            practice that is being seen in industry today.
+        </p>
+        <p>
+            This site is going to be a collection of resources and ideas that could help to improve how we
+            think about code and programming and systems. It is a constant work in progress, as all
+            good things can be.
+        </p>
+
+        <h2>Who</h2>
+        <p>
+            Pete Shepley is a software engineer, systems analyst, and creative worker. You can find more about him on
+            <a href="https://peteshepley.com">his website</a>. He is starting this site to bring together resources on
+            refocusing how programmers write code. To limit biases, he is going to  offset his personal beliefs and
+            biases by bringing in others to share their perspective. This community is about open discourse and learning
+            from each other.
+        </p>
+
+        <h2>What</h2>
+        <p>
+            This website is going to collect articles, interviews, and other resources to help foster the
+            idea that we are constantly trying to write better code. It is the hope to define and refine
+            what that means and how we can do it.
+        </p>
+        <p>
+            Eventually there will be links to articles or resource collections. And we will host videos of interviews
+            or discussions around better code. There will also be the chance to have in person meetings with
+            group discussions. The sky is the limit.
+        </p>
+
+        <h2>How</h2>
+        <p>
+            If you are interested in a particular topic, you can write an email to <a href="mailto:hello@better-code.org">hello@better-code.org</a>.
+            And if you just want to stay up-to-date, subscribe to the <a href="/articles/rss.xml">RSS feed</a>.
+        </p>
+        <p>
+            If you are interested in contributing send an email to <a href="mailto:contribute@better-code.org">contribute@better-code.org</a>.
+        </p>
+    </section>
+
+    <footer>
+        ✌ Copyright &copy; {new Date().getFullYear()} Better Code Org. All rights reserved.
+    </footer>
 </Layout>
+
+<style>
+    .navigation {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        margin: 1rem 0;
+        border-top: 1px solid var(--color-text);
+        border-bottom: 1px solid var(--color-text);
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: var(--color-text);
+        border: 1px solid var(--color-text);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        transition: transform 0.3s ease;
+    }
+
+    .navigation a:hover {
+        transform: translateY(-5px);
+    }
+
+    .content {
+        margin: 0 4rem;
+        max-width: 100%;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20rem 0 2rem 0;
+        background: var(--color-bg);
+        color: var(--color-text);
+    }
+</style>

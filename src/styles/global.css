@@ -1,53 +1,54 @@
 /* Global dark theme styles */
 
 :root {
-  /* Colors */
-  --color-bg: #000000;
-  --color-text: #ffffff;
-  --color-muted: #cccccc;
-  --color-link: #9bd1ff;
-  --color-link-hover: #c7e3ff;
+    /* Colors */
+    --color-bg: #000000;
+    --color-text: #ffffff;
+    --color-muted: #cccccc;
+    --color-link: #9bd1ff;
+    --color-link-hover: #c7e3ff;
 
-  /* Fonts */
-  --font-header: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+    /* Fonts */
+    --font-header: "Playfair Display", Georgia, "Times New Roman", serif;
+    --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
 }
 
 html,
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  margin: 0;
-  min-height: 100%;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    margin: 0;
+    min-height: 100%;
+    font-size: 24px;
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-header);
-  font-weight: 700;
-  line-height: 1.25;
-  margin-top: 0;
+    font-family: var(--font-header);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-top: 0;
 }
 
 /* Links */
 a {
-  color: var(--color-link);
-  text-decoration: underline;
+    color: var(--color-link);
+    text-decoration: underline;
 }
 
 a:hover, a:focus:hover {
-  color: var(--color-link-hover);
+    color: var(--color-link-hover);
 }
 
 /* Focus visibility */
 :focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
 }
 
 /* Selection color for better visibility */
 ::selection {
-  background: rgba(155, 209, 255, 0.35);
+    background: rgba(155, 209, 255, 0.35);
 }

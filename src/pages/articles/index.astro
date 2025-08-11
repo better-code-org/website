@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all articles posts from the collection
+const allArticles = await getCollection('articles');
+
+// Sort posts by publication date (newest first)
+const sorted = allArticles.sort((a, b) => {
+  const dateA = new Date(a.data.pubDate);
+  const dateB = new Date(b.data.pubDate);
+  return dateB - dateA;
+});
+---
+
+<Layout title="Better Code | Articles" description="Articles for writing better code">
+    <section class="article-header">
+        <h1>Articles</h1>
+    </section>
+
+    <section class="article-cards">
+      {sorted.map((post: any) => (
+              <article class="card">
+                  <a href={`/articles/${post.slug}`}>
+                      <h2>{post.data.title}</h2>
+                      <p class="article-date">{post.data.pubDate}</p>
+                      <p class="article-excerpt">{post.data.description}</p>
+                      <div class="post-tags">
+                        {post.data.tags.map((tag: any) => (
+                                <span class="tag">{tag}</span>
+                        ))}
+                      </div>
+                  </a>
+              </article>
+      ))}
+    </section>
+</Layout>
+
+<style>
+    .article-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .article-header h1 {
+        font-size: 2.5rem;
+        //color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .article-header p {
+        font-size: 1.2rem;
+        //color: var(--text-color);
+    }
+
+    .article-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .card {
+        border-radius: 8px;
+        border-color: var(--primary-color);
+        border-width: 1px;
+        border-style: solid;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .card a {
+        display: block;
+        padding: 1.5rem;
+        text-decoration: none;
+        color: var(--text-color);
+    }
+
+    .card h2 {
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+    }
+
+    .article-date {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .article-excerpt {
+        margin-bottom: 1rem;
+        line-height: 1.6;
+    }
+
+    .article-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .tag {
+        background-color: #f0f0f0;
+        color: #555;
+        margin: 0.2rem;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+        .article-header h1 {
+            font-size: 2rem;
+        }
+    }
+</style>

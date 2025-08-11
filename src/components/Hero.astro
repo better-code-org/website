@@ -1,0 +1,39 @@
+---
+const {heading, subheading} = Astro.props;
+---
+
+<section class="hero">
+    <div class="hero-inner">
+        <h1>{heading}</h1>
+        <p class="subtitle">
+          {subheading}
+        </p>
+    </div>
+</section>
+
+<style>
+    .hero {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        text-align: center;
+        background: transparent;
+    }
+
+    .hero-inner {
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+
+    .hero-inner h1 {
+        font-family: var(--font-header);
+        font-size: clamp(2.5rem, 6vw, 10rem);
+        margin: 0 0 0.5rem 0;
+    }
+
+    .hero-inner .subtitle {
+        color: var(--color-muted);
+        font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+        margin: 0;
+    }
+</style>
